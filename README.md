@@ -28,4 +28,5 @@ You should have a dev server running on port 3333.
 Open your browser and go to http://localhost:3333
 
 Update the index.html file to update the title
-Start on the /components/app.js to start your development
+
+Start hacking by updating the /components/app.js
