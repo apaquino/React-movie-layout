@@ -2,9 +2,9 @@
 
 This is a basic starter kit to build quick prototypes of apps or test new features using React for the web.
 It uses React and React-Dom version 0.14 with webpack 1.x and babel 6.
-I use clone this when I feel like hacking or doing quick POC's and I want minimal setup.
+I clone this repo when I feel like hacking or doing quick POC's and I want minimal setup.
 
-You should have npm installed as well.
+You should have node/npm installed as well.
 
 To start it assumes you have the following installed globally
 ```
