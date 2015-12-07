@@ -8,7 +8,7 @@ export default class List extends React.Component {
     this.state = { data: [] }
   }
 
-    loadComments () {
+    loadMovies () {
     fetch(this.props.source)
       .then(response => response.json())
       .then(data => this.setState({ data: data['results'] }))
@@ -16,7 +16,7 @@ export default class List extends React.Component {
   }
 
   componentDidMount () {
-    this.loadComments()
+    this.loadMovies()
   }
 
 	render() {
