@@ -19,8 +19,8 @@ export default class List extends React.Component {
     this.loadMovies()
   }
 
-	render() {
 
+	render() {
     let posts = this.state.data.map(function(movie){
       return <Poster movie={movie} />
     });
