@@ -13,8 +13,8 @@ export default class Poster extends React.Component {
           </div>
           <div className="overlay-text">
             <p> {this.props.movie.original_title}</p>
-            <p><span>5</span>/10
-              <span>(100 votes)</span></p>
+            <p><span>{this.props.movie.vote_average}</span>/10
+              <span>({this.props.movie.vote_count} votes)</span></p>
             </div>           
           </div>
         </div>
