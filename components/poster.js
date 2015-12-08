@@ -40,8 +40,8 @@ export default class Poster extends React.Component {
                                   showModal={this.state.showModal}
                                   url={url}
                                   handleClose={this.close.bind(this)}
-                                /> : null}
-
+                                /> : null
+        }
       </div>
     )
 	}
