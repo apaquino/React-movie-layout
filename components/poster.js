@@ -21,7 +21,7 @@ export default class Poster extends React.Component {
   }
 
 	render() {
-    let url = "//image.tmdb.org/t/p/w500/" + this.props.movie.poster_path;
+    let url = `//image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`;
     let popover = <Popover title="popover">very popover. such engagement</Popover>;
     let tooltip = <Tooltip>wow.</Tooltip>;
     return (
