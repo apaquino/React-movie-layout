@@ -1,7 +1,7 @@
 import React from 'react';
 import Poster from './poster.js';
 
-export default class List extends React.Component {
+class List extends React.Component {
   constructor (props) {
     super(props)
     this.state = { data: [] }
@@ -28,3 +28,5 @@ export default class List extends React.Component {
     )
 	}
 }
+
+export default List;

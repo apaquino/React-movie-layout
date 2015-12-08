@@ -4,7 +4,6 @@ import Poster from './poster.js';
 import List from './list.js';
 
 class App extends Component {
-
 	render() {
 		return (
 			<div>

@@ -5,8 +5,7 @@ import { Tooltip } from 'react-bootstrap';
 import { Popover } from 'react-bootstrap';
 import PosterModal from './posterModal';
 
-
-export default class Poster extends React.Component {
+class Poster extends React.Component {
   constructor (props) {
     super(props)
     this.state = { showModal: false }
@@ -46,3 +45,5 @@ export default class Poster extends React.Component {
     )
 	}
 }
+
+export default Poster;
