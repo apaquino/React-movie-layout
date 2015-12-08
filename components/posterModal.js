@@ -15,12 +15,12 @@ class PosterModal extends React.Component {
           <Modal.Title>{this.props.movie.original_title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div class="col-lg-3">
+          <div className="col-lg-3">
             <div className="poster">
               <img className="posterImage" src= {this.props.url}/>
             </div>
           </div>
-          <div class="col-lg-9">
+          <div className="col-lg-9">
             <h2>{this.props.movie.original_title }</h2>
             <p><span >{this.props.movie.vote_average}</span>/10
             <span>({this.props.movie.vote_count} votes)</span>
