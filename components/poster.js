@@ -1,10 +1,9 @@
 import React from 'react';
-import { Modal } from 'react-bootstrap';
 import { OverlayTrigger } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
 import { popover } from 'react-bootstrap';
 import { Tooltip } from 'react-bootstrap';
 import { Popover } from 'react-bootstrap';
+import PosterModal from './posterModal';
 
 
 export default class Poster extends React.Component {
@@ -37,28 +36,12 @@ export default class Poster extends React.Component {
           <span>({this.props.movie.vote_count} votes)</span></p>
         </div>
         </div>
-      <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
-        <Modal.Header closeButton>
-          <Modal.Title>{this.props.movie.original_title}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-        <div class="col-lg-3">
-          <div className="poster">
-            <img className="posterImage" src= {url}/>
-          </div>
-        </div>
-        <div class="col-lg-9">
-          <h2>  {this.props.movie.original_title }</h2>
+        {this.state.showModal ? <PosterModal {...this.props}
+                                  showModal={this.state.showModal}
+                                  url={url}
+                                  handleClose={this.close.bind(this)}
+                                /> : null}
 
-          <p><span >{this.props.movie.vote_average}</span>/10
-          <span >({this.props.movie.vote_count} votes)</span>
-          <span>{this.props.movie.overview}</span></p>
-        </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={this.close.bind(this)}>Close</Button>
-        </Modal.Footer>
-      </Modal>
       </div>
     )
 	}
