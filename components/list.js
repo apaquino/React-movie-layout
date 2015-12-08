@@ -19,12 +19,12 @@ export default class List extends React.Component {
   }
 
 	render() {
-    let posts = this.state.data.map(function(movie){
-      return <Poster movie={movie} />
-    });
+    let posts = this.state.data.map((movie, id) => <Poster key={id} movie={movie} />);
 
     return (
-      <div>{posts}</div>
+      <div>
+        {posts}
+      </div>
     )
 	}
 }
