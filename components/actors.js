@@ -2,10 +2,10 @@ import React from 'react';
 
 class Actors extends React.Component {
 	constructor (props) {
-		super(props)
+		super(props);
 		this.state = {
 			actors: []
-		}
+		};
 	}
 
 	loadActors () {
