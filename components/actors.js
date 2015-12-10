@@ -9,24 +9,24 @@ class Actors extends React.Component {
 	}
 
 	loadActors () {
-		let url = "http://api.themoviedb.org/3/movie/" + this.props.id + "/credits?api_key=9e1b08f9af16f8d7c20c0dd0aeb4749a"
+		let url = `http://api.themoviedb.org/3/movie/${this.props.id}/credits?api_key=9e1b08f9af16f8d7c20c0dd0aeb4749a`;
 
 		fetch(url)
 			.then(response => response.json())
 			.then(function(actors) {
-				let actorList = []
+				let actorList = [];
 
 				actors.cast.slice(0,4).forEach(actor => {
-					actorList.push({profile_path: actor.profile_path, id: actor.id})
+					actorList.push({profile_path: actor.profile_path, id: actor.id});
 				});
 
 				this.setState({actors: actorList});
 			}.bind(this))
-			.catch(err => console.error(this.props.source, err.toString()))
+			.catch(err => console.error(this.props.source, err.toString()));
 	}
 
 	componentDidMount () {
-		this.loadActors()
+		this.loadActors();
 	}
 
 	createActorImages() {
