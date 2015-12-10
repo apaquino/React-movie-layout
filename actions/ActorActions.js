@@ -1,7 +1,7 @@
 import API from "../utils/API";
 
 let ActorActions = {
-  getActors(id) {
+  retrieveActors(id) {
     API.fetchActors(id);
   }
 };

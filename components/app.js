@@ -13,7 +13,7 @@ class App extends Component {
 	}
 
 	componentDidMount () {
-		MovieActions.getMovies();
+		MovieActions.retrieveMovies();
 		MovieStore.startListening(this._onFluxChange.bind(this));
 	}
 

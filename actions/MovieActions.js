@@ -1,7 +1,7 @@
 import API from "../utils/API";
 
 let MovieActions = {
-  getMovies() {
+  retrieveMovies() {
     API.fetchMovies();
   }
 };
