@@ -13,7 +13,7 @@ class Actors extends React.Component {
 
 		fetch(url)
 			.then(response => response.json())
-			.then(function(actors) {
+			.then((actors) => {
 				let actorList = [];
 
 				actors.cast.slice(0,4).forEach(actor => {
@@ -21,7 +21,7 @@ class Actors extends React.Component {
 				});
 
 				this.setState({actors: actorList});
-			}.bind(this))
+			})
 			.catch(err => console.error(this.props.source, err.toString()));
 	}
 
