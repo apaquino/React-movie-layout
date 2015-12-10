@@ -14,6 +14,8 @@
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
+    "events": "^1.1.0",
+    "flux": "^2.1.1",
     "jquery": "^2.1.4",
     "react": "^0.14.3",
     "react-bootstrap": "^0.28.1",

@@ -2,31 +2,38 @@ import React, {Component} from 'react';
 import Header from './header.js';
 import Poster from './poster.js';
 import List from './list.js';
-import {get} from 'jquery';
 
-const SOURCE = "http://api.themoviedb.org/3/discover/movie?api_key=9e1b08f9af16f8d7c20c0dd0aeb4749a&year=2015&sort_by=revenue.desc";
+import MovieActions from "../actions/MovieActions";
+import MovieStore from "../stores/MovieStore"
 
 class App extends Component {
 	constructor (props) {
 		super(props)
-		this.state = { data: [] }
-	}
-
-	loadMovies () {
-		get(SOURCE)
-			.success(data => this.setState({ data: data['results'] }))
-			.error(err => console.error(this.props.source, err.toString()))
+		this.state = { movies: this._getMoviesState() }
 	}
 
 	componentDidMount () {
-		this.loadMovies()
+		MovieActions.getMovies();
+		MovieStore.startListening(this._onFluxChange.bind(this));
 	}
+
+	componentWillUnmount() {
+		MovieStore.stopListening(this._onFluxChange.bind(this))
+	}
+
+	_onFluxChange() {
+		this.setState({movies: this._getMoviesState()})
+	}
+
+	_getMoviesState() {
+		return MovieStore.getMovies()
+	};
 
 	render() {
 		return (
 			<div>
 				<Header/>
-				<List data={this.state.data} />
+				<List data={this.state.movies} />
 			</div>
 			)
 	}
