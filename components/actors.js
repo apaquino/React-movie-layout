@@ -1,4 +1,5 @@
 import React from 'react';
+import {get} from 'jquery';
 
 class Actors extends React.Component {
 	constructor (props) {
@@ -11,9 +12,8 @@ class Actors extends React.Component {
 	loadActors () {
 		let url = `http://api.themoviedb.org/3/movie/${this.props.id}/credits?api_key=9e1b08f9af16f8d7c20c0dd0aeb4749a`;
 
-		fetch(url)
-			.then(response => response.json())
-			.then((actors) => {
+		get(url)
+			.success((actors) => {
 				let actorList = [];
 
 				actors.cast.slice(0,4).forEach(actor => {
@@ -22,7 +22,7 @@ class Actors extends React.Component {
 
 				this.setState({actors: actorList});
 			})
-			.catch(err => console.error(this.props.source, err.toString()));
+			.error(err => console.error(this.props.source, err.toString()));
 	}
 
 	componentDidMount () {
