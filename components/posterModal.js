@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
+import Actors from './actors'
 
 class PosterModal extends React.Component {
 
@@ -25,6 +26,7 @@ class PosterModal extends React.Component {
             <p><span >{this.props.movie.vote_average}</span>/10
             <span>({this.props.movie.vote_count} votes)</span>
             <span>{this.props.movie.overview}</span></p>
+            <Actors id={this.props.movie.id}/>
           </div>
         </Modal.Body>
         <Modal.Footer>

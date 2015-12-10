@@ -1,3 +1,7 @@
+.actor{
+	width:25%;
+}
+
 .ngdialog.ngdialog-theme-default .ngdialog-content {
 	width:100%;
 	background:rgba(18,29,40,0.975);
