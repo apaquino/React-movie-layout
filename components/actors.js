@@ -34,7 +34,7 @@ class Actors extends React.Component {
 			return (
 				<img className="actor"
 					   key={actor.id}
-						 src={"//image.tmdb.org/t/p/w300/" + actor.profile_path}>
+						 src={`//image.tmdb.org/t/p/w300/${actor.profile_path}`}>
 				</img>)
 		})
 	}
