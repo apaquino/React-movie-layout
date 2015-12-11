@@ -3,6 +3,7 @@ import AppDispatcher from "../dispatcher/AppDispatcher";
 import {ActionTypes} from "../actions/Constants";
 
 let _actors = [];
+const NEW_ACTORS_RECEIVED = "NEW_ACTORS_RECEIVED";
 
 class ActorStore extends EventEmitter {
   constructor(props) {
@@ -16,7 +17,7 @@ class ActorStore extends EventEmitter {
         action.actors.cast.slice(0,4).forEach(actor => {
           _actors.push({profile_path: actor.profile_path, id: actor.id});
         });
-        this.emit("CHANGE");
+        this.emit(NEW_ACTORS_RECEIVED);
         break;
       default:
         break;
@@ -29,11 +30,11 @@ class ActorStore extends EventEmitter {
   }
   // listeners
   startListening(callback) {
-    this.on("CHANGE", callback);
+    this.on(NEW_ACTORS_RECEIVED, callback);
   }
 
   stopListening(callback) {
-    this.removeListener("CHANGE", callback);
+    this.removeListener(NEW_ACTORS_RECEIVED, callback);
   }
 }
 
