@@ -1,4 +1,4 @@
-# react-movie-layout
+# React Movie Layout - Example with React and Flux (others to come)
 Master branch is done in vanilla Flux using API calls
 
 To start it assumes you have the following installed globally
