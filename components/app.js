@@ -7,36 +7,36 @@ import MovieActions from "../actions/MovieActions";
 import MovieStore from "../stores/MovieStore"
 
 class App extends Component {
-	constructor (props) {
-		super(props)
-		this.state = { movies: this._getMoviesState() }
-	}
+  constructor (props) {
+    super(props)
+    this.state = { movies: this._getMoviesState() }
+  }
 
-	componentDidMount () {
-		MovieActions.retrieveMovies();
-		MovieStore.startListening(this._onFluxChange.bind(this));
-	}
+  componentDidMount () {
+    MovieActions.retrieveMovies();
+    MovieStore.startListening(this._onFluxChange.bind(this));
+  }
 
-	componentWillUnmount() {
-		MovieStore.stopListening(this._onFluxChange.bind(this))
-	}
+  componentWillUnmount() {
+    MovieStore.stopListening(this._onFluxChange.bind(this))
+  }
 
-	_onFluxChange() {
-		this.setState({movies: this._getMoviesState()})
-	}
+  _onFluxChange() {
+    this.setState({movies: this._getMoviesState()})
+  }
 
-	_getMoviesState() {
-		return MovieStore.getMovies()
-	};
+  _getMoviesState() {
+    return MovieStore.getMovies()
+  };
 
-	render() {
-		return (
-			<div>
-				<Header/>
-				<List data={this.state.movies} />
-			</div>
-			)
-	}
+  render() {
+    return (
+      <div>
+        <Header/>
+        <List data={this.state.movies} />
+      </div>
+    )
+  }
 }
 
 export default App;
