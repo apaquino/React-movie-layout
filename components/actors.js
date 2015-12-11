@@ -2,6 +2,7 @@ import React from 'react';
 
 import ActorActions from '../actions/ActorActions';
 import ActorStore from '../stores/ActorStore';
+import KEYS from '../utils/KEYS';
 
 class Actors extends React.Component {
   constructor (props) {
@@ -12,7 +13,7 @@ class Actors extends React.Component {
   }
 
   componentDidMount() {
-    let url = `http://api.themoviedb.org/3/movie/${this.props.id}/credits?api_key=9e1b08f9af16f8d7c20c0dd0aeb4749a`;
+    let url = `http://api.themoviedb.org/3/movie/${this.props.id}/credits?api_key=${KEYS.API_KEY}`;
     ActorActions.retrieveActors(url);
     ActorStore.startListening(this._onFluxChange.bind(this));
   }

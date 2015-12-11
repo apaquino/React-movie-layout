@@ -4,7 +4,7 @@ import Poster from './poster.js';
 import List from './list.js';
 
 import MovieActions from "../actions/MovieActions";
-import MovieStore from "../stores/MovieStore"
+import MovieStore from "../stores/MovieStore";
 
 class App extends Component {
   constructor (props) {
