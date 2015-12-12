@@ -34,7 +34,10 @@ class ActorStore extends EventEmitter {
   }
 
   stopListening(callback) {
-    this.removeListener(NEW_ACTORS_RECEIVED, callback);
+    // special case, if you open first time and the next time will
+    // still call the first callback.
+    // TODO add more info later after research
+    this.removeAllListeners(NEW_ACTORS_RECEIVED, callback);
   }
 }
 
