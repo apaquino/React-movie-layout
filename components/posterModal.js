@@ -4,7 +4,7 @@ import {Button} from 'react-bootstrap';
 import Actors from './actors'
 
 const propTypes = {
-    showModal: PropTypes.bool,
+    showModal: PropTypes.bool.isRequired,
     url: PropTypes.string.isRequired,
     movie: PropTypes.shape({
       original_title: PropTypes.string.isRequired,

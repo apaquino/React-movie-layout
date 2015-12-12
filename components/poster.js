@@ -1,9 +1,18 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import { OverlayTrigger } from 'react-bootstrap';
 import { popover } from 'react-bootstrap';
 import { Tooltip } from 'react-bootstrap';
 import { Popover } from 'react-bootstrap';
 import PosterModal from './posterModal';
+
+const propTypes = {
+  movie: PropTypes.shape({
+    original_title: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired,
+    vote_count: PropTypes.number.isRequired
+    })
+};
 
 class Poster extends Component {
   constructor (props) {
@@ -45,5 +54,7 @@ class Poster extends Component {
     )
 	}
 }
+
+Poster.propTypes = propTypes;
 
 export default Poster;
