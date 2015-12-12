@@ -1,9 +1,9 @@
-import React from 'react';
-import { Modal } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
+import React, {Component} from 'react';
+import {Modal} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import Actors from './actors'
 
-class PosterModal extends React.Component {
+class PosterModal extends Component {
 
   handleClose() {
     this.props.handleClose();

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import ActorActions from '../actions/ActorActions';
 import ActorStore from '../stores/ActorStore';
 import KEYS from '../utils/KEYS';
 
-class Actors extends React.Component {
+class Actors extends Component {
   constructor (props) {
     super(props);
     this.state = {

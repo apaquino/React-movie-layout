@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { OverlayTrigger } from 'react-bootstrap';
 import { popover } from 'react-bootstrap';
 import { Tooltip } from 'react-bootstrap';
 import { Popover } from 'react-bootstrap';
 import PosterModal from './posterModal';
 
-class Poster extends React.Component {
+class Poster extends Component {
   constructor (props) {
     super(props)
     this.state = { showModal: false }
