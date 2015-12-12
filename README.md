@@ -9,6 +9,19 @@ Then do the following:
 ```
 npm install
 ```
+
+You need to provide your own API key for themoviedb.com API service
+
+Then you need to manually create a KEY.js file in the ./utils directory.
+
+example:
+
+```
+let KEYS = {
+  API_KEY: "YOUR KEY HERE"
+}
+export default KEYS;
+```
 Lastly do the following:
 ```
 npm start
