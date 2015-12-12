@@ -1,7 +1,19 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {Modal} from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
 import Actors from './actors'
+
+const propTypes = {
+    showModal: PropTypes.bool,
+    url: PropTypes.string.isRequired,
+    movie: PropTypes.shape({
+      original_title: PropTypes.string.isRequired,
+      vote_average: PropTypes.number.isRequired,
+      vote_count: PropTypes.number.isRequired,
+      overview: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired
+    })
+};
 
 class PosterModal extends Component {
 
@@ -36,5 +48,7 @@ class PosterModal extends Component {
     )
   }
 }
+
+PosterModal.propTypes = propTypes;
 
 export default PosterModal;
