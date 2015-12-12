@@ -1,8 +1,12 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 
 import ActorActions from '../actions/ActorActions';
 import ActorStore from '../stores/ActorStore';
 import KEYS from '../utils/KEYS';
+
+const propTypes = {
+  id: PropTypes.number.isRequired
+};
 
 class Actors extends Component {
   constructor (props) {
@@ -50,5 +54,7 @@ class Actors extends Component {
     )
   }
 }
+
+Actors.propTypes = propTypes;
 
 export default Actors;
