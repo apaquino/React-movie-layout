@@ -10,7 +10,7 @@ class Actors extends React.Component {
 	}
 
 	loadActors () {
-		let url = `http://api.themoviedb.org/3/movie/${this.props.id}/credits?api_key=9e1b08f9af16f8d7c20c0dd0aeb4749a`;
+		let url = `http://api.themoviedb.org/3/movie/${this.props.id}/credits?api_key=${PROVIDE_KEY}`;
 
 		get(url)
 			.success((actors) => {

@@ -4,7 +4,7 @@ import Poster from './poster.js';
 import List from './list.js';
 import {get} from 'jquery';
 
-const SOURCE = "http://api.themoviedb.org/3/discover/movie?api_key=9e1b08f9af16f8d7c20c0dd0aeb4749a&year=2015&sort_by=revenue.desc";
+const SOURCE = `http://api.themoviedb.org/3/discover/movie?api_key=${PROVIDE_KEY}&year=2015&sort_by=revenue.desc`;
 
 class App extends Component {
 	constructor (props) {
