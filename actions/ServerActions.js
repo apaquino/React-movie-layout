@@ -1,5 +1,5 @@
 import AppDispatcher from "../dispatcher/AppDispatcher";
-import {ActionTypes} from "./Constants";
+import {ActionTypes} from "./ACTION_CONSTANTS";
 
 let ServerActions = {
   receiveMovies(movies) {

@@ -1,9 +1,9 @@
 import {EventEmitter} from "events";
 import AppDispatcher from "../dispatcher/AppDispatcher";
-import {ActionTypes} from "../actions/Constants";
+import {ActionTypes} from "../actions/ACTION_CONSTANTS";
+import {EVENTS} from "./EVENT_CONSTANTS";
 
 let _movies = [];
-const NEW_MOVIES_RECEIVED = "NEW_MOVIES_RECEIVED";
 
 class MovieStore extends EventEmitter {
   constructor(props) {
@@ -13,7 +13,7 @@ class MovieStore extends EventEmitter {
       switch (action.actionType) {
       case ActionTypes.RECEIVE_MOVIES:
         _movies = action.movies;
-        this.emit(NEW_MOVIES_RECEIVED);
+        this.emit(EVENTS.NEW_MOVIES_RECEIVED);
         break;
       default:
         break;
@@ -26,11 +26,11 @@ class MovieStore extends EventEmitter {
   }
   // listeners
   startListening(callback) {
-    this.on(NEW_MOVIES_RECEIVED, callback);
+    this.on(EVENTS.NEW_MOVIES_RECEIVED, callback);
   }
 
   stopListening(callback) {
-    this.removeListener(NEW_MOVIES_RECEIVED, callback);
+    this.removeListener(EVENTS.NEW_MOVIES_RECEIVED, callback);
   }
 }
 

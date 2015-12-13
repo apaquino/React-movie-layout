@@ -1,9 +1,9 @@
 import {EventEmitter} from "events";
 import AppDispatcher from "../dispatcher/AppDispatcher";
-import {ActionTypes} from "../actions/Constants";
+import {ActionTypes} from "../actions/ACTION_CONSTANTS";
+import {EVENTS} from "./EVENT_CONSTANTS";
 
 let _actors = [];
-const NEW_ACTORS_RECEIVED = "NEW_ACTORS_RECEIVED";
 
 class ActorStore extends EventEmitter {
   constructor(props) {
@@ -17,7 +17,7 @@ class ActorStore extends EventEmitter {
         action.actors.cast.slice(0,4).forEach(actor => {
           _actors.push({profile_path: actor.profile_path, id: actor.id});
         });
-        this.emit(NEW_ACTORS_RECEIVED);
+        this.emit(EVENTS.NEW_ACTORS_RECEIVED);
         break;
       default:
         break;
@@ -30,14 +30,14 @@ class ActorStore extends EventEmitter {
   }
   // listeners
   startListening(callback) {
-    this.on(NEW_ACTORS_RECEIVED, callback);
+    this.on(EVENTS.NEW_ACTORS_RECEIVED, callback);
   }
 
   stopListening(callback) {
     // special case, if you open first time and the next time will
     // still call the first callback.
     // TODO add more info later after research
-    this.removeAllListeners(NEW_ACTORS_RECEIVED, callback);
+    this.removeAllListeners(EVENTS.NEW_ACTORS_RECEIVED, callback);
   }
 }
 
