@@ -16,7 +16,7 @@ function movies(state = initialState, action) {
     });
   case RECEIVE_MOVIES:
     return Object.assign({}, state, {
-      isLoading: "test",
+      isLoading: false,
       movies: action.movies
     });
   default:

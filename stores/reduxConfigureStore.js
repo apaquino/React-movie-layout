@@ -2,9 +2,6 @@ import {createStore, applyMiddleware} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import rootReducer from '../reducers/rootReducer';
-import {fetchMovies, receiveMovies} from '../actions/reduxActions';
-
-
 
 // 6. this has middle ware for the async functions
 // need to have a function that calls a curry function
