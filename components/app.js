@@ -5,38 +5,46 @@ import List from './list.js';
 
 import MovieActions from "../actions/MovieActions";
 import MovieStore from "../stores/MovieStore";
+// 9. import react-redux and actions and bindActionCreators
+import{connect} from 'react-redux';
+import * as movieActions from '../actions/reduxActions';
+import {bindActionCreators} from 'redux';
 
 class App extends Component {
   constructor (props) {
     super(props)
-    this.state = { movies: this._getMoviesState() }
   }
 
   componentDidMount () {
-    MovieActions.retrieveMovies();
-    MovieStore.startListening(this._onFluxChange.bind(this));
+    this.props.actions.fetchMovies();
   }
-
-  componentWillUnmount() {
-    MovieStore.stopListening(this._onFluxChange.bind(this))
-  }
-
-  _onFluxChange() {
-    this.setState({movies: this._getMoviesState()})
-  }
-
-  _getMoviesState() {
-    return MovieStore.getMovies()
-  };
-
   render() {
     return (
       <div>
         <Header/>
-        <List data={this.state.movies} />
+        <List data={this.props.movies} />
       </div>
     )
   }
 }
 
-export default App;
+// 10. create function to map state to props
+
+function mapStateToProps(state) {
+  const {movies, isLoading} = state.movies;
+  return {
+    isLoading,
+    movies
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(movieActions, dispatch)
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
