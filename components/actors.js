@@ -36,7 +36,6 @@ class Actors extends Component {
 	}
 
   render() {
-    console.log("actors props", this.props);
     return (
       <div>
         <h1>Actors Here {this.props.id}</h1>

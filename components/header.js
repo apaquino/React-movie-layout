@@ -1,6 +1,6 @@
 import React from 'react';
 
-let Header = () => {
+const Header = () => {
   return (
 	  <div className="row">
 	    <div id="top1" className="col-lg-12">
