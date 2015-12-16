@@ -16,8 +16,8 @@ const propTypes = {
 
 class Poster extends Component {
   constructor (props) {
-    super(props)
-    this.state = { showModal: false }
+    super(props);
+    this.state = { showModal: false };
   }
 
   open() {

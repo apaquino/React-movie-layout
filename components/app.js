@@ -3,8 +3,6 @@ import Header from './header.js';
 import Poster from './poster.js';
 import List from './list.js';
 
-import MovieActions from "../actions/MovieActions";
-import MovieStore from "../stores/MovieStore";
 // 9. import react-redux and actions and bindActionCreators
 import{connect} from 'react-redux';
 import * as movieActions from '../actions/reduxActions';
@@ -12,13 +10,13 @@ import {bindActionCreators} from 'redux';
 
 class App extends Component {
   constructor (props) {
-    super(props)
+    super(props);
   }
 
   componentDidMount () {
     this.props.actions.fetchMovies();
   }
-  
+
   render() {
     return (
       <div>

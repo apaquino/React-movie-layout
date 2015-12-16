@@ -1,4 +1,0 @@
-export const ActionTypes = {
-  RECEIVE_MOVIES: "RECEIVE_MOVIES",
-  RECIEVE_ACTORS: "RECIEVE_ACTORS"
-};

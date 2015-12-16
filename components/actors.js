@@ -1,13 +1,9 @@
 import React, {Component, PropTypes} from 'react';
-
-import ActorActions from '../actions/ActorActions';
-import ActorStore from '../stores/ActorStore';
 import KEYS from '../utils/KEYS';
 //10. import actions, bindActionCreators, and connect
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actorActions from '../actions/reduxActions';
-
 
 const propTypes = {
   id: PropTypes.number.isRequired
@@ -21,25 +17,11 @@ class Actors extends Component {
   // 12. add context to constructor methods
   constructor (props, context) {
     super(props, context);
-    // this.state = {
-    //   actors: ActorStore.getActors()
-    // };
   }
 
   componentDidMount() {
     let url = `http://api.themoviedb.org/3/movie/${this.props.id}/credits?api_key=${KEYS.API_KEY}`;
     this.props.actions.fetchActors(url);
-    console.log("CDM", this.props.actors);
-    // ActorActions.retrieveActors(url);
-    // ActorStore.startListening(this._onFluxChange.bind(this));
-  }
-
-  componentWillReceiveProps(nextProps){
-    console.log("received new props", this.props);
-  }
-
-  componentWillUnmount() {
-    // ActorStore.stopListening(this._onFluxChange.bind(this));
   }
 
   createActorImages() {
@@ -52,14 +34,6 @@ class Actors extends Component {
 				</img>)
   	})
 	}
-
-  _getActorsState() {
-    return ActorStore.getActors();
-  }
-
-  _onFluxChange() {
-    this.setState({actors: this._getActorsState()});
-  }
 
   render() {
     console.log("actors props", this.props);
@@ -95,5 +69,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Actors);
-
-// export default Actors;

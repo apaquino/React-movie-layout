@@ -3,7 +3,6 @@ import KEYS from "../utils/KEYS";
 
 const SOURCE = `http://api.themoviedb.org/3/discover/movie?api_key=${KEYS.API_KEY}&year=2015&sort_by=revenue.desc`;
 
-
 // 1. create constants that just describe the actions
 // make it all uppercase and snaked
 
@@ -12,11 +11,8 @@ export const RECEIVE_MOVIES = 'RECEIVE_MOVIES';
 export const REQUEST_ACTORS = 'REQUEST_ACTORS';
 export const RECEIVE_ACTORS = 'RECEIVE_ACTORS';
 
-
 // 2. create functions similiar to constants but camel case
 // that return the object with the type (mandatory) and payload
-
-
 // have separate functions to make the request and then receive it
 // separation of concerns
 
