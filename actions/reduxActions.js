@@ -63,7 +63,7 @@ export function fetchActors(actorsUrl) {
       return fetch(actorsUrl)
                .then(response => response.json())
                .then(json => {
-                 dispatch(receiveActors(json));
+                 dispatch(receiveActors(json.cast));
                });
   };
 }

@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import KEYS from '../utils/KEYS';
-//10. import actions, bindActionCreators, and connect
+//12. import actions, bindActionCreators, and connect
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actorActions from '../actions/reduxActions';
@@ -8,13 +8,13 @@ import * as actorActions from '../actions/reduxActions';
 const propTypes = {
   id: PropTypes.number.isRequired
 };
-// 11. create context types so children components have access to the state objects
+// 13. create context types so children components have access to the state objects
 const contextTypes = {
   store: PropTypes.object
 };
 
 class Actors extends Component {
-  // 12. add context to constructor methods
+  // 14. add context to constructor methods
   constructor (props, context) {
     super(props, context);
   }
@@ -46,9 +46,9 @@ class Actors extends Component {
 }
 
 Actors.propTypes = propTypes;
-Actors.contextTypes = contextTypes; // 13. add context types to class
+Actors.contextTypes = contextTypes; // 15. add context types to class
 
-// 14. create function to map state to props
+// 16. create function to map state to props
 
 function mapStateToProps(state) {
   const {actors, isLoadingActors} = state.actors;
@@ -64,6 +64,8 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
+// 17. use connect function so you don't have to subscribe, unsubscribe, and
+// other boilerplate code
 export default connect(
   mapStateToProps,
   mapDispatchToProps

@@ -13,7 +13,7 @@ function actors(state = initialState, action) {
     });
   case RECEIVE_ACTORS:
     let _actors = []
-    action.actors.cast.slice(0,4).forEach(actor => {
+    action.actors.slice(0,4).forEach(actor => {
       _actors.push({profile_path: actor.profile_path, id: actor.id});
     });
 
