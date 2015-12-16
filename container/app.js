@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import Header from './header.js';
-import Poster from './poster.js';
-import List from './list.js';
+import Header from '../components/header.js';
+import Poster from '../components/poster.js';
+import List from '../components/list.js';
 
 // 9. import react-redux and actions and bindActionCreators
 import{connect} from 'react-redux';
@@ -42,6 +42,9 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators(movieActions, dispatch)
   }
 }
+
+// 11. use connect function so you don't have to subscribe, unsubscribe, and
+// other boilerplate code
 
 export default connect(
   mapStateToProps,
