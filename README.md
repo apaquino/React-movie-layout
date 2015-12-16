@@ -1,5 +1,10 @@
-# React Movie Layout - Example with React and Flux (others to come)
+# React Movie Layout - Example React Apps with Flux and Redux
 Master branch is done in vanilla Flux using API calls
+
+See the with_redux branch for the redux implementation
+```
+git checkout with_redux
+```
 
 To start it assumes you have the following installed globally
 ```
