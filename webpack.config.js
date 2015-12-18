@@ -1,4 +1,8 @@
+var webpack = require('webpack');
+
+
 module.exports = {
+  devtool: 'cheap-module-source-map',
   entry: './main.js',
   output: {
     path: './',
@@ -19,5 +23,12 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+        compress: {
+            warnings: false
+        }
+    })
+  ]
 };
