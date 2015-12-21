@@ -37169,22 +37169,9 @@
 
 	var _ServerActions2 = _interopRequireDefault(_ServerActions);
 
-	var _KEYS = __webpack_require__(417);
-
-	var _KEYS2 = _interopRequireDefault(_KEYS);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var SOURCE = "http://api.themoviedb.org/3/discover/movie?api_key=" + _KEYS2.default.API_KEY + "&year=2015&sort_by=revenue.desc";
-
 	var API = {
-	  // FLUX Way!
-	  // fetchMovies() {
-	  //   get(SOURCE)
-	  //     .success(data => ServerActions.receiveMovies(data.results))
-	  //     .error(err => console.error(err.toString()));
-	  // },
-
 	  fetchActors: function fetchActors(url) {
 	    (0, _jquery.get)(url).success(function (actors) {
 	      return _ServerActions2.default.receiveActors(actors);

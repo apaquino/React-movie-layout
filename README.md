@@ -1,5 +1,11 @@
-# React Movie Layout - Example React Apps with Flux and Redux
+# React Movie Layout - Example React Apps with Flux and Redux and Flux with GraphQL API server.
+
 Master branch is done in vanilla Flux using API calls
+
+See the with_graphql branch for the graphQL implementation used in the flux implementation.
+```
+git checkout with_graphql
+```
 
 See the with_redux branch for the redux implementation
 ```
