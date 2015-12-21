@@ -5,6 +5,7 @@ import List from './list.js';
 
 import MovieActions from "../actions/MovieActions";
 import MovieStore from "../stores/MovieStore";
+import API from "../utils/API";
 
 class App extends Component {
   constructor (props) {
@@ -13,6 +14,7 @@ class App extends Component {
   }
 
   componentDidMount () {
+    // API.fetchMoviesGraphQL();
     MovieActions.retrieveMovies();
     MovieStore.startListening(this._onFluxChange.bind(this));
   }
