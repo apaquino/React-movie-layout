@@ -5,7 +5,7 @@ import ActorStore from '../stores/ActorStore';
 import KEYS from '../utils/KEYS';
 
 const propTypes = {
-  id: PropTypes.number.isRequired
+  id: PropTypes.string.isRequired
 };
 
 class Actors extends Component {
@@ -18,6 +18,7 @@ class Actors extends Component {
 
   componentDidMount() {
     let url = `http://api.themoviedb.org/3/movie/${this.props.id}/credits?api_key=${KEYS.API_KEY}`;
+    console.log(url);
     ActorActions.retrieveActors(url);
     ActorStore.startListening(this._onFluxChange.bind(this));
   }

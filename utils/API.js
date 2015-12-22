@@ -15,7 +15,9 @@ let API = {
           poster_path,
           vote_count,
           vote_average,
-          original_title
+          original_title,
+          overview,
+          id
         }
       }
       `

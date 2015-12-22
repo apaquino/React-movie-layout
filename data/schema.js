@@ -21,19 +21,32 @@ const SOURCE = `http://api.themoviedb.org/3/discover/movie?api_key=${KEYS.API_KE
 let movieType = new GraphQLObjectType({
   name: "Movie",
   fields: () => ({
-    poster_path: { type: GraphQLString},
-    adult: { type: GraphQLBoolean},
-    overview: { type: GraphQLString},
-    release_date: { type: GraphQLString},
-    id: { type: GraphQLID},
-    original_title: { type: GraphQLString},
-    original_language: { type: GraphQLString},
-    title: { type: GraphQLString},
-    backdrop_path: { type: GraphQLString},
-    popularity: { type: GraphQLFloat},
-    vote_count: { type: GraphQLInt},
-    video: { type: GraphQLBoolean},
-    vote_average: { type: GraphQLFloat},
+    poster_path: { type: GraphQLString },
+    adult: { type: GraphQLBoolean },
+    overview: { type: GraphQLString },
+    release_date: { type: GraphQLString },
+    id: { type: GraphQLID },
+    original_title: { type: GraphQLString },
+    original_language: { type: GraphQLString },
+    title: { type: GraphQLString },
+    backdrop_path: { type: GraphQLString },
+    popularity: { type: GraphQLFloat },
+    vote_count: { type: GraphQLInt },
+    video: { type: GraphQLBoolean },
+    vote_average: { type: GraphQLFloat },
+  })
+});
+
+let actorType = new GraphQLObjectType({
+  name: "Actor",
+  fields: () => ({
+    cast_id: { type: GraphQLInt },
+    character: { type: GraphQLString },
+    credit_id: { type: GraphQLString },
+    id: { type: GraphQLID },
+    name: { type: GraphQLString },
+    order: { type: GraphQLInt },
+    profile_path: { type: GraphQLString }
   })
 });
 

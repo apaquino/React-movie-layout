@@ -5,7 +5,8 @@
   "main": "graphqlserver.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "babel-node --presets es2015 ./graphqlserver.js"
+    "start": "babel-node --presets es2015 ./graphqlserver.js",
+    "devbuild": "webpack -w"
   },
   "author": "",
   "license": "ISC",

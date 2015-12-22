@@ -11,7 +11,7 @@ const propTypes = {
       vote_average: PropTypes.number.isRequired,
       vote_count: PropTypes.number.isRequired,
       overview: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired
+      id: PropTypes.string.isRequired
     })
 };
 

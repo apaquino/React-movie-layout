@@ -36921,7 +36921,7 @@
 	    vote_average: _react.PropTypes.number.isRequired,
 	    vote_count: _react.PropTypes.number.isRequired,
 	    overview: _react.PropTypes.string.isRequired,
-	    id: _react.PropTypes.number.isRequired
+	    id: _react.PropTypes.string.isRequired
 	  })
 	};
 
@@ -37039,11 +37039,11 @@
 
 	var _ActorActions2 = _interopRequireDefault(_ActorActions);
 
-	var _ActorStore = __webpack_require__(418);
+	var _ActorStore = __webpack_require__(417);
 
 	var _ActorStore2 = _interopRequireDefault(_ActorStore);
 
-	var _KEYS = __webpack_require__(417);
+	var _KEYS = __webpack_require__(420);
 
 	var _KEYS2 = _interopRequireDefault(_KEYS);
 
@@ -37056,7 +37056,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var propTypes = {
-	  id: _react.PropTypes.number.isRequired
+	  id: _react.PropTypes.string.isRequired
 	};
 
 	var Actors = (function (_Component) {
@@ -37077,6 +37077,7 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      var url = 'http://api.themoviedb.org/3/movie/' + this.props.id + '/credits?api_key=' + _KEYS2.default.API_KEY;
+	      console.log(url);
 	      _ActorActions2.default.retrieveActors(url);
 	      _ActorStore2.default.startListening(this._onFluxChange.bind(this));
 	    }
@@ -37181,7 +37182,7 @@
 	  },
 	  fetchMoviesGraphQL: function fetchMoviesGraphQL() {
 	    return (0, _jquery.post)("/graphql", {
-	      query: "\n      {\n        movies {\n          poster_path,\n          vote_count,\n          vote_average,\n          original_title\n        }\n      }\n      "
+	      query: "\n      {\n        movies {\n          poster_path,\n          vote_count,\n          vote_average,\n          original_title,\n          overview,\n          id\n        }\n      }\n      "
 	    }).success(function (response) {
 	      return _ServerActions2.default.receiveMovies(response.data.movies);
 	    }).success(console.log("graphQL executed")).error(function (err) {
@@ -46785,20 +46786,6 @@
 
 /***/ },
 /* 417 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var KEYS = {
-	  API_KEY: "9e1b08f9af16f8d7c20c0dd0aeb4749a"
-	};
-	exports.default = KEYS;
-
-/***/ },
-/* 418 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -46809,7 +46796,7 @@
 	  value: true
 	});
 
-	var _events = __webpack_require__(419);
+	var _events = __webpack_require__(418);
 
 	var _AppDispatcher = __webpack_require__(412);
 
@@ -46817,7 +46804,7 @@
 
 	var _ACTION_CONSTANTS = __webpack_require__(416);
 
-	var _EVENT_CONSTANTS = __webpack_require__(420);
+	var _EVENT_CONSTANTS = __webpack_require__(419);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46883,7 +46870,7 @@
 	exports.default = new ActorStore();
 
 /***/ },
-/* 419 */
+/* 418 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -47187,7 +47174,7 @@
 
 
 /***/ },
-/* 420 */
+/* 419 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -47199,6 +47186,20 @@
 	  NEW_MOVIES_RECEIVED: "NEW_MOVIES_RECEIVED",
 	  NEW_ACTORS_RECEIVED: "NEW_ACTORS_RECEIVED"
 	};
+
+/***/ },
+/* 420 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var KEYS = {
+	  API_KEY: "9e1b08f9af16f8d7c20c0dd0aeb4749a"
+	};
+	exports.default = KEYS;
 
 /***/ },
 /* 421 */
@@ -47271,7 +47272,7 @@
 	  value: true
 	});
 
-	var _events = __webpack_require__(419);
+	var _events = __webpack_require__(418);
 
 	var _AppDispatcher = __webpack_require__(412);
 
@@ -47279,7 +47280,7 @@
 
 	var _ACTION_CONSTANTS = __webpack_require__(416);
 
-	var _EVENT_CONSTANTS = __webpack_require__(420);
+	var _EVENT_CONSTANTS = __webpack_require__(419);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
