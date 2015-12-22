@@ -31,7 +31,9 @@ let API = {
       }
       `
     })
-    .success(response => ServerActions.receiveActors(response.data.actors))
+    .success(response => {
+      return ServerActions.receiveActors(response.data.actors);
+    })
     .error(err => console.error(err.toString()));
   },
 };
