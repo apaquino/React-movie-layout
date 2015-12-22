@@ -13,7 +13,6 @@ import {
 import fetch from 'isomorphic-fetch';
 import KEYS from "../utils/KEYS";
 const SOURCE = `http://api.themoviedb.org/3/discover/movie?api_key=${KEYS.API_KEY}&year=2015&sort_by=revenue.desc`;
-
 // movie type
 // all fields returned by the API when called from the client
 // from the client just call what you want
@@ -65,6 +64,27 @@ let query = new GraphQLObjectType({
           })
           .then(function(json) {
             return json.results;
+          });
+      }
+    },
+    actors: {
+      type: new GraphQLList(actorType),
+      args: {
+        first: {
+          type: new GraphQLNonNull(GraphQLInt)
+        },
+        id: {
+          type: new GraphQLNonNull(GraphQLInt)
+        }
+      },
+      resolve: (_, {id, first}) => {
+        let url = `http://api.themoviedb.org/3/movie/${id}/credits?api_key=${KEYS.API_KEY}`;
+        return fetch(url)
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(json) {
+            return json.cast.slice(0, first);
           });
       }
     }
