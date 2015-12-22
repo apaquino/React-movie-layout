@@ -10,7 +10,7 @@ class Actors extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      actors: ActorStore.getActors()
+      actors: []
     };
   }
 
@@ -32,7 +32,8 @@ class Actors extends Component {
 					className="actor"
           key={actor.id}
           src={`//image.tmdb.org/t/p/w300/${actor.profile_path}`}>
-				</img>)
+				</img>
+      )
   	})
 	}
 
