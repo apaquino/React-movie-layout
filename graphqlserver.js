@@ -12,13 +12,6 @@ app.get("/", function(req, res) {
   res.render("index");
 });
 
-// mount a graphql endpoint
-// needs a schema
-// create a folder to hold schema
-// convention is in data
-
-;
-
 app.use("/GraphQL", GraphQLHTTP({
   schema,
   graphiql: true
