@@ -14,7 +14,7 @@ git checkout with_redux
 
 To start it assumes you have the following installed globally
 ```
-npm install babel webpack webpack-dev-server -g
+npm install babel webpack -g
 ```
 Then do the following:
 ```
@@ -31,6 +31,7 @@ example:
 let KEYS = {
   API_KEY: "YOUR KEY HERE"
 }
+
 export default KEYS;
 ```
 Lastly do the following in two different terminal sessions:
