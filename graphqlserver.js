@@ -13,10 +13,11 @@ app.get("/", function(req, res) {
 });
 
 app.use("/GraphQL", GraphQLHTTP({
-  schema,
-  graphiql: true
-})
+    schema,
+    graphiql: true
+  })
 );
-app.listen(PORT, function() {
+
+app.listen(PORT, () => {
   console.log("Node/Express server for Flux/GraphQL app.  listening on port", PORT);
 });
