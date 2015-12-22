@@ -1,5 +1,7 @@
 import express from 'express';
 import path from 'path';
+import schema from './data/schema';
+import GraphQLHTTP from 'express-graphql';
 
 const app = express();
 const PORT = 8888;
@@ -15,8 +17,7 @@ app.get("/", function(req, res) {
 // create a folder to hold schema
 // convention is in data
 
-import schema from './data/schema';
-import GraphQLHTTP from 'express-graphql';
+;
 
 app.use("/GraphQL", GraphQLHTTP({
   schema,
