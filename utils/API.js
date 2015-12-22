@@ -18,7 +18,6 @@ let API = {
       `
     })
     .success(response => ServerActions.receiveMovies(response.data.movies))
-    .success(console.log("graphQL movies executed "))
     .error(err => console.error(err.toString()));
   },
   fetchActorsGraphQL(id, first) {
@@ -33,7 +32,6 @@ let API = {
       `
     })
     .success(response => ServerActions.receiveActors(response.data.actors))
-    .success(console.log("graphQL actors executed"))
     .error(err => console.error(err.toString()));
   },
 };
