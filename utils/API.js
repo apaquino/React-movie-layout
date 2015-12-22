@@ -10,7 +10,8 @@ let API = {
       .success(data => ServerActions.receiveMovies(data['results']))
       .error(err => console.error(err.toString()))
   },
-  fetchActors(url) {
+  fetchActors(id) {
+    let url = `http://api.themoviedb.org/3/movie/${id}/credits?api_key=${KEYS.API_KEY}`;
     get(url)
       .success(actors => ServerActions.receiveActors(actors))
       .error(err => console.error(err.toString()));
