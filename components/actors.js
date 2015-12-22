@@ -20,8 +20,9 @@ class Actors extends Component {
   }
 
   componentDidMount() {
-    let url = `http://api.themoviedb.org/3/movie/${this.props.id}/credits?api_key=${KEYS.API_KEY}`;
-    this.props.actions.fetchActors(url);
+    let {id} = this.props;
+
+    this.props.actions.fetchActors(id);
   }
 
   createActorImages() {
