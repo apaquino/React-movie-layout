@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {Modal} from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
-import Actors from './actors';
+import Actors from '../containers/actors';
 
 const propTypes = {
     showModal: PropTypes.bool.isRequired,
