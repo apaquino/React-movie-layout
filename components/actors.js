@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import ActorActions from '../actions/ActorActions';
 import ActorStore from '../stores/ActorStore';
 

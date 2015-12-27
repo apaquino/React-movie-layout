@@ -1,4 +1,4 @@
-import {get, post} from "jquery";
+import { get, post } from "jquery";
 import ServerActions from "../actions/ServerActions";
 
 let API = {

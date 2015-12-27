@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Header from './header.js';
 import Poster from './poster.js';
 import List from './list.js';

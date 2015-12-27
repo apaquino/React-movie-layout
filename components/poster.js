@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import { OverlayTrigger } from 'react-bootstrap';
 import { popover } from 'react-bootstrap';
 import { Tooltip } from 'react-bootstrap';
