@@ -1,7 +1,7 @@
 import React from 'react';
 import Poster from './poster.js';
 
-let List = (props) => {
+const List = (props) => {
   let posts = props.data.map((movie, id) => <Poster key={id} movie={movie} />);
 
   return (

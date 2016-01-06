@@ -1,0 +1,21 @@
+1.    setup express to handle the graphql endpoint.
+2.    insert express-graphql middleware.
+3.    setup schema.js in data folder (convention).
+4.    in schema.js, import all types, fetch, and relevant KEYS
+5.    create a query GraphQLObjectType
+6.    in this case, make a movieType GraphQLObjectType
+7.    fields should be what is returned by API call, all fields
+8.    in the query GraphQLObjectType, create movies that returns a type GraphQLList
+9.    in the resolve method, return fetch call for the API
+10.   create a schema with the GraphQLSchema class (use new)
+11.   the object should be the query.  use es2015 query:Query
+12.   export the schema!
+13.   in the express file, add schema in the middleware, use es2015
+14.   highly recommended to add the graphiql key set to true
+15.   in the flux API, use post method because of get character limits
+16.   the success promise should return response.data.  data is the default return in graphiql
+17.   call the server action with the right payload
+18.   with args, you need to add args and pass to the resolve function
+19.   args is an object.  it has keys and each key has a type KEYS
+20.   if the object doesn't need to be passed, use the _ function in the resolve
+      e.g. resolve(_, {destructure args object here})
