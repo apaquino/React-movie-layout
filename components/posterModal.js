@@ -17,32 +17,38 @@ const propTypes = {
 
 class PosterModal extends Component {
 
-  handleClose() {
-    this.props.handleClose();
-  }
-
   render(){
+
+    const { handleClose, showModal, url } = this.props;
+    const {
+      original_title,
+      vote_average,
+      vote_count,
+      overview,
+      id,
+    } = this.props.movie;
+
     return (
-      <Modal show={this.props.showModal} onHide={this.handleClose.bind(this)}>
+      <Modal show={showModal} onHide={() => handleClose()}>
         <Modal.Header closeButton>
-          <Modal.Title>{this.props.movie.original_title}</Modal.Title>
+          <Modal.Title>{original_title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="col-lg-3">
             <div className="poster">
-              <img className="posterImage" src= {this.props.url}/>
+              <img className="posterImage" src= {url}/>
             </div>
           </div>
           <div className="col-lg-9">
-            <h2>{this.props.movie.original_title }</h2>
-            <p><span >{this.props.movie.vote_average}</span>/10
-            <span>({this.props.movie.vote_count} votes)</span>
-            <span>{this.props.movie.overview}</span></p>
-            <Actors id={this.props.movie.id}/>
+            <h2>{original_title }</h2>
+            <p><span >{vote_average}</span>/10
+            <span>({vote_count} votes)</span>
+            <span>{overview}</span></p>
+            <Actors id={id}/>
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={this.handleClose.bind(this)}>Close</Button>
+          <Button onClick={() => handleClose()}>Close</Button>
         </Modal.Footer>
       </Modal>
     )
