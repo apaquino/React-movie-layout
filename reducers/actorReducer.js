@@ -12,13 +12,13 @@ function actors(state = initialState, action) {
       isLoadingActors: true
     });
   case RECEIVE_ACTORS:
-    const actors = action.actors.slice(0,4).map(actor => {
+    const _actors = action.actors.slice(0,4).map(actor => {
       return {profile_path: actor.profile_path, id: actor.id};
     });
 
     return Object.assign({}, state, {
       isLoadingActors: false,
-      actors
+      actors: _actors
     });
   default:
     return state;
