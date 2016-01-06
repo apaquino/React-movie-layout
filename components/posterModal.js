@@ -17,13 +17,9 @@ const propTypes = {
 
 class PosterModal extends Component {
 
-  handleClose() {
-    this.props.handleClose();
-  }
-
   render(){
     return (
-      <Modal show={this.props.showModal} onHide={this.handleClose.bind(this)}>
+      <Modal show={this.props.showModal} onHide={() => this.props.handleClose()}>
         <Modal.Header closeButton>
           <Modal.Title>{this.props.movie.original_title}</Modal.Title>
         </Modal.Header>
@@ -42,7 +38,7 @@ class PosterModal extends Component {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={this.handleClose.bind(this)}>Close</Button>
+          <Button onClick={() => this.props.handleClose()}>Close</Button>
         </Modal.Footer>
       </Modal>
     )
