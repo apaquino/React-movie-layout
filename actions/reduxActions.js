@@ -53,7 +53,7 @@ export function fetchMovies() {
                .then(response => response.json())
                .then(json => {
                  dispatch(receiveMovies(json.results));
-               });
+             });
   };
 }
 
@@ -66,6 +66,6 @@ export function fetchActors(id) {
                .then(response => response.json())
                .then(json => {
                  dispatch(receiveActors(json.cast));
-               });
+             });
   };
 }
