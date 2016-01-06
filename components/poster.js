@@ -16,14 +16,14 @@ const propTypes = {
 
 class Poster extends Component {
   constructor (props) {
-    super(props)
-    this.state = { showModal: false }
+    super(props);
+    this.state = { showModal: false };
   }
 
 	render() {
-    let url = `//image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`;
-    let popover = <Popover id="Popover" title="popover">very popover. such engagement</Popover>;
-    let tooltip = <Tooltip id="Toolipt" >wow.</Tooltip>;
+    const url = `//image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`;
+    const popover = <Popover id="Popover" title="popover">very popover. such engagement</Popover>;
+    const tooltip = <Tooltip id="Toolipt" >wow.</Tooltip>;
     return (
       <div onClick={() => this.setState({ showModal: true })} className="col-lg-3 col-md-3 col-sm-6 col-xs-6 nopadding space">
         <div className="wrapper">
