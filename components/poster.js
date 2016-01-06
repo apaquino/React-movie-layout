@@ -20,20 +20,12 @@ class Poster extends Component {
     this.state = { showModal: false }
   }
 
-  open() {
-    this.setState({ showModal: true });
-  }
-
-  close() {
-    this.setState({ showModal: false });
-  }
-
 	render() {
     let url = `//image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`;
     let popover = <Popover id="Popover" title="popover">very popover. such engagement</Popover>;
     let tooltip = <Tooltip id="Toolipt" >wow.</Tooltip>;
     return (
-      <div onClick={this.open.bind(this)} className="col-lg-3 col-md-3 col-sm-6 col-xs-6 nopadding space">
+      <div onClick={() => this.setState({ showModal: true })} className="col-lg-3 col-md-3 col-sm-6 col-xs-6 nopadding space">
         <div className="wrapper">
         <div className="poster">
           <img className="posterImage" src= {url}/>
@@ -47,7 +39,7 @@ class Poster extends Component {
         {this.state.showModal ? <PosterModal {...this.props}
                                   showModal={this.state.showModal}
                                   url={url}
-                                  handleClose={this.close.bind(this)}
+                                  handleClose={() => this.setState({ showModal: false })}
                                 /> : null
         }
       </div>
