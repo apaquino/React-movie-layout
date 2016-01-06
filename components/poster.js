@@ -24,6 +24,7 @@ class Poster extends Component {
     const url = `//image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`;
     const popover = <Popover id="Popover" title="popover">very popover. such engagement</Popover>;
     const tooltip = <Tooltip id="Toolipt" >wow.</Tooltip>;
+    const { original_title, vote_average, vote_count } = this.props.movie;
     return (
       <div onClick={() => this.setState({ showModal: true })} className="col-lg-3 col-md-3 col-sm-6 col-xs-6 nopadding space">
         <div className="wrapper">
@@ -31,9 +32,9 @@ class Poster extends Component {
             <img className="posterImage" src= {url}/>
           </div>
           <div className="overlay-text">
-            <p> {this.props.movie.original_title}</p>
-            <p><span>{this.props.movie.vote_average}</span>/10
-            <span>({this.props.movie.vote_count} votes)</span></p>
+            <p> {original_title}</p>
+            <p><span>{vote_average}</span>/10
+            <span>({vote_count} votes)</span></p>
           </div>
         </div>
         {this.state.showModal ? <PosterModal {...this.props}
