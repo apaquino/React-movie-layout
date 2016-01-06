@@ -15,7 +15,7 @@ class Actors extends Component {
   }
 
   componentDidMount() {
-    let {id} = this.props;
+    const {id} = this.props;
 
     ActorActions.retrieveActors(id, 4);
     ActorStore.startListening(this._onFluxChange.bind(this));
