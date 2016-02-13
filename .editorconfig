@@ -1,0 +1,6 @@
+root = true
+
+# So github has consistent look on site and code merged from contributors
+[src/**.{js,py}]
+indent_style = tab
+indent_size = 2

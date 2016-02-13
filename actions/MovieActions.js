@@ -1,8 +1,9 @@
 import API from "../utils/API";
 
+// change to GraphQL
 let MovieActions = {
   retrieveMovies() {
-    API.fetchMovies();
+    API.fetchMoviesGraphQL();
   }
 };
 

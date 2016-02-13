@@ -1,7 +1,7 @@
-import {EventEmitter} from "events";
+import { EventEmitter } from "events";
 import AppDispatcher from "../dispatcher/AppDispatcher";
-import {ActionTypes} from "../actions/ACTION_CONSTANTS";
-import {EVENTS} from "./EVENT_CONSTANTS";
+import { ActionTypes } from "../actions/ACTION_CONSTANTS";
+import { EVENTS } from "./EVENT_CONSTANTS";
 
 let _movies = [];
 

@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import { OverlayTrigger } from 'react-bootstrap';
 import { popover } from 'react-bootstrap';
 import { Tooltip } from 'react-bootstrap';
@@ -16,31 +16,37 @@ const propTypes = {
 
 class Poster extends Component {
   constructor (props) {
-    super(props)
-    this.state = { showModal: false }
+    super(props);
+    this.state = { showModal: false };
   }
 
 	render() {
-    let url = `//image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`;
-    let popover = <Popover id="Popover" title="popover">very popover. such engagement</Popover>;
-    let tooltip = <Tooltip id="Toolipt" >wow.</Tooltip>;
+    const url = `//image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`;
+    const popover = <Popover id="Popover" title="popover">Cool stuff</Popover>;
+    const tooltip = <Tooltip id="Toolipt" >Poster Tooltip.</Tooltip>;
+    const { original_title, vote_average, vote_count } = this.props.movie;
+    const { showModal } = this.state;
     return (
-      <div onClick={() => this.setState({ showModal: true })} className="col-lg-3 col-md-3 col-sm-6 col-xs-6 nopadding space">
+      <div
+        onClick={() => this.setState({ showModal: true })}
+        className="col-lg-3 col-md-3 col-sm-6 col-xs-6 nopadding space"
+      >
         <div className="wrapper">
-        <div className="poster">
-          <img className="posterImage" src= {url}/>
+          <div className="poster">
+            <img className="posterImage" src= {url}/>
+          </div>
+          <div className="overlay-text">
+            <p>{original_title}</p>
+            <p><span>{vote_average}</span>/10
+            <span>({vote_count} votes)</span></p>
+          </div>
         </div>
-        <div className="overlay-text">
-          <p> {this.props.movie.original_title}</p>
-          <p><span>{this.props.movie.vote_average}</span>/10
-          <span>({this.props.movie.vote_count} votes)</span></p>
-        </div>
-        </div>
-        {this.state.showModal ? <PosterModal {...this.props}
-                                  showModal={this.state.showModal}
-                                  url={url}
-                                  handleClose={() => this.setState({ showModal: false })}
-                                /> : null
+        {showModal ? <PosterModal
+                      {...this.props}
+                      showModal={showModal}
+                      url={url}
+                      handleClose={() => this.setState({ showModal: false })}
+                      /> : <div />
         }
       </div>
     )

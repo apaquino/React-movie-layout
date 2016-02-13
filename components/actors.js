@@ -1,23 +1,22 @@
-import React, {Component, PropTypes} from 'react';
-
+import React, { Component, PropTypes } from 'react';
 import ActorActions from '../actions/ActorActions';
 import ActorStore from '../stores/ActorStore';
 
 const propTypes = {
-  id: PropTypes.number.isRequired
+  id: PropTypes.string.isRequired
 };
 
 class Actors extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      actors: ActorStore.getActors()
+      actors: []
     };
   }
 
   componentDidMount() {
-    let {id} = this.props;
-    ActorActions.retrieveActors(id);
+    const {id} = this.props;
+    ActorActions.retrieveActors(id, 4);
     ActorStore.startListening(this._onFluxChange.bind(this));
   }
 
@@ -32,7 +31,8 @@ class Actors extends Component {
 					className="actor"
           key={actor.id}
           src={`//image.tmdb.org/t/p/w300/${actor.profile_path}`}>
-				</img>)
+				</img>
+      )
   	})
 	}
 

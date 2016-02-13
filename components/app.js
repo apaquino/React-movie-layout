@@ -1,15 +1,14 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Header from './header.js';
 import Poster from './poster.js';
 import List from './list.js';
-
 import MovieActions from "../actions/MovieActions";
 import MovieStore from "../stores/MovieStore";
 
 class App extends Component {
   constructor (props) {
-    super(props)
-    this.state = { movies: this._getMoviesState() }
+    super(props);
+    this.state = { movies: this._getMoviesState() };
   }
 
   componentDidMount () {
@@ -18,16 +17,16 @@ class App extends Component {
   }
 
   componentWillUnmount() {
-    MovieStore.stopListening(this._onFluxChange.bind(this))
+    MovieStore.stopListening(this._onFluxChange.bind(this));
   }
 
   _onFluxChange() {
-    this.setState({movies: this._getMoviesState()})
+    this.setState({movies: this._getMoviesState()});
   }
 
   _getMoviesState() {
-    return MovieStore.getMovies()
-  };
+    return MovieStore.getMovies();
+  }
 
   render() {
     return (

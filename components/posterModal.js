@@ -1,7 +1,7 @@
-import React, {Component, PropTypes} from 'react';
-import {Modal} from 'react-bootstrap';
-import {Button} from 'react-bootstrap';
-import Actors from './actors'
+import React, { Component, PropTypes } from 'react';
+import { Modal } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import Actors from './actors';
 
 const propTypes = {
     showModal: PropTypes.bool.isRequired,
@@ -11,34 +11,42 @@ const propTypes = {
       vote_average: PropTypes.number.isRequired,
       vote_count: PropTypes.number.isRequired,
       overview: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired
+      id: PropTypes.string.isRequired
     })
 };
 
 class PosterModal extends Component {
+  render() {
+    const { handleClose, showModal, url } = this.props;
+    const {
+      original_title,
+      vote_average,
+      vote_count,
+      overview,
+      id,
+    } = this.props.movie;
 
-  render(){
     return (
-      <Modal show={this.props.showModal} onHide={() => this.props.handleClose()}>
+      <Modal show={showModal} onHide={() => handleClose()}>
         <Modal.Header closeButton>
-          <Modal.Title>{this.props.movie.original_title}</Modal.Title>
+          <Modal.Title>{original_title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="col-lg-3">
             <div className="poster">
-              <img className="posterImage" src= {this.props.url}/>
+              <img className="posterImage" src= {url}/>
             </div>
           </div>
           <div className="col-lg-9">
-            <h2>{this.props.movie.original_title }</h2>
-            <p><span >{this.props.movie.vote_average}</span>/10
-            <span>({this.props.movie.vote_count} votes)</span>
-            <span>{this.props.movie.overview}</span></p>
-            <Actors id={this.props.movie.id}/>
+            <h2>{original_title }</h2>
+            <p><span >{vote_average}</span>/10
+            <span>({vote_count} votes)</span>
+            <span>{overview}</span></p>
+            <Actors id={id}/>
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={() => this.props.handleClose()}>Close</Button>
+          <Button onClick={() => handleClose()}>Close</Button>
         </Modal.Footer>
       </Modal>
     )

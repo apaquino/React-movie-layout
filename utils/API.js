@@ -1,21 +1,41 @@
-import {get} from "jquery";
+import { get, post } from "jquery";
 import ServerActions from "../actions/ServerActions";
-import KEYS from "./KEYS";
-
-const SOURCE = `http://api.themoviedb.org/3/discover/movie?api_key=${KEYS.API_KEY}&year=2015&sort_by=revenue.desc`;
 
 let API = {
-  fetchMovies() {
-    get(SOURCE)
-      .success(data => ServerActions.receiveMovies(data['results']))
-      .error(err => console.error(err.toString()))
+  fetchMoviesGraphQL() {
+    return post("/graphql", {
+      query: `
+      {
+        movies {
+          poster_path,
+          vote_count,
+          vote_average,
+          original_title,
+          overview,
+          id
+        }
+      }
+      `
+    })
+    .success(response => ServerActions.receiveMovies(response.data.movies))
+    .error(err => console.error(err.toString()));
   },
-  fetchActors(id) {
-    let url = `http://api.themoviedb.org/3/movie/${id}/credits?api_key=${KEYS.API_KEY}`;
-    get(url)
-      .success(actors => ServerActions.receiveActors(actors))
-      .error(err => console.error(err.toString()));
-  }
+  fetchActorsGraphQL(id, first) {
+    return post("/graphql", {
+      query: `
+      {
+      	actors(id: ${id}, first:${first}) {
+          id,
+          profile_path
+        }
+      }
+      `
+    })
+    .success(response => {
+      return ServerActions.receiveActors(response.data.actors);
+    })
+    .error(err => console.error(err.toString()));
+  },
 };
 
 export default API;
