@@ -33,8 +33,8 @@ class Actors extends Component {
           src={`//image.tmdb.org/t/p/w300/${actor.profile_path}`}>
 	</img>
       )
-  	})
-	}
+    })
+  }
 
   _getActorsState() {
     return ActorStore.getActors();
