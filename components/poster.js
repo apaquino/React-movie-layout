@@ -20,7 +20,7 @@ class Poster extends Component {
     this.state = { showModal: false };
   }
 
-	render() {
+  render() {
     const url = `//image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`;
     const popover = <Popover id="Popover" title="popover">Cool stuff</Popover>;
     const tooltip = <Tooltip id="Toolipt" >Poster Tooltip.</Tooltip>;
@@ -50,7 +50,7 @@ class Poster extends Component {
         }
       </div>
     )
-	}
+  }
 }
 
 Poster.propTypes = propTypes;
