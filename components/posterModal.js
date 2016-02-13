@@ -16,9 +16,7 @@ const propTypes = {
 };
 
 class PosterModal extends Component {
-
-  render(){
-
+  render() {
     const { handleClose, showModal, url } = this.props;
     const {
       original_title,
