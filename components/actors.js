@@ -28,10 +28,10 @@ class Actors extends Component {
     return this.state.actors.map(actor => {
       return (
         <img
-					className="actor"
+	  className="actor"
           key={actor.id}
           src={`//image.tmdb.org/t/p/w300/${actor.profile_path}`}>
-				</img>
+	</img>
       )
   	})
 	}
@@ -48,8 +48,8 @@ class Actors extends Component {
     return (
       <div>
         <h1>Actors Here {this.props.id}</h1>
-				{this.state.actors ? this.createActorImages() : "loading ..."}
-			</div>
+	{this.state.actors ? this.createActorImages() : "loading ..."}
+	</div>
     )
   }
 }
